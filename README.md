@@ -10,3 +10,6 @@ FAQ:
 
 - Q: Why didn't you use: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template?
 - A: I like to be in control of the functionality since it is so simple anyway.
+
+-Q: Does this reflect my full ability as a software engineer?
+-A: No, this is only the problemsolving and pure code mastery part, for the softskills and engineering skills check my other public repos
