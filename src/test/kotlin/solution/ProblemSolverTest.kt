@@ -1,13 +1,13 @@
-package solution.day1
+package solution
 
-import solution.AbstractProblemSolver
 import org.junit.jupiter.api.Test
+import solution.day1.Day1ProblemSolver
 import kotlin.test.assertTrue
 
 class ProblemSolverTest {
     @Test
     fun dayOne() {
-        verify(Day1ProblemSolver(), 0, 0)
+        verify(Day1ProblemSolver(), awnserOne = 0, awnserTwo = 0)
     }
 
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, awnserOne: A, awnserTwo: A){
