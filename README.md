@@ -16,3 +16,6 @@ FAQ:
 ---
 - Q: Wow this repo is so beautiful and has convinced me to hire you how can I reach you?
 - A: Please reach out to me on linkedin with a mention to this repo, I will reply shortly if I know you've actually looked at the repository!
+---
+- Q: I see 'x' functionality in 'y' library, why didn't you use that instead of implementing it yourself?
+- A: I believe this defeats the purpose of a coding challenge, unless trivial or unrelated to the problem directly I will refrain from using external libraries
