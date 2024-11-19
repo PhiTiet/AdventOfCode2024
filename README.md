@@ -5,3 +5,8 @@ This is my repo showcasing my own solutions to these complex problems, read thro
 
 
 For more info about the problems and the event visit [their website](https://adventofcode.com/).
+
+FAQ:
+
+- Q: Why didn't you use: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template?
+  A: I like to be in control of the functionality since it is so simple anyway.
