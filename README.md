@@ -9,4 +9,4 @@ For more info about the problems and the event visit [their website](https://adv
 FAQ:
 
 - Q: Why didn't you use: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template?
-  A: I like to be in control of the functionality since it is so simple anyway.
+- A: I like to be in control of the functionality since it is so simple anyway.
