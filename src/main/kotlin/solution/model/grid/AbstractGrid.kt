@@ -1,4 +1,4 @@
-package solution.model
+package solution.model.grid
 
 abstract class AbstractGrid<E : AbstractGridElement>(private val elements: List<List<E>>) {
     val size: Int = elements.size
