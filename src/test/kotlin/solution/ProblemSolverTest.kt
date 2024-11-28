@@ -7,11 +7,11 @@ import kotlin.test.assertTrue
 class ProblemSolverTest {
     @Test
     fun dayOne() {
-        verify(Day1ProblemSolver(), awnserOne = 0, awnserTwo = 0)
+        verify(Day1ProblemSolver(), answerOne = 0, answerTwo = 0)
     }
 
-    private fun <A : Number> verify(solver : AbstractProblemSolver<A>, awnserOne: A, awnserTwo: A){
-        assertTrue { solver.partOne() == awnserOne }
-        assertTrue { solver.partTwo() == awnserTwo }
+    private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
+        assertTrue { solver.partOne() == answerOne }
+        assertTrue { solver.partTwo() == answerTwo }
     }
 }

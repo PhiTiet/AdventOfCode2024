@@ -25,7 +25,6 @@ class Graph<N>(
                     distancesToStart[adjacent] = newDistance
                 }
             }
-
         }
     }
 

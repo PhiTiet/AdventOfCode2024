@@ -1,19 +1,20 @@
 package solution
 
-import java.io.FileNotFoundException
+import model.AOCClient
 
-abstract class AbstractProblemSolver<A: Number> : ProblemSolver<A> {
-    protected fun getInput() : List<String>{
-        return this::class.java.getResourceAsStream(inputPath())?.bufferedReader()?.readLines() ?: throw FileNotFoundException("file does not exist")
+
+abstract class AbstractProblemSolver<A : Number> : ProblemSolver<A> {
+
+    protected fun getInput(): List<String> {
+        return AOCClient().getInput(dayNumberFromClass())
     }
 
-    private fun inputPath(): String{
-        return "/solutions/${dayNumberFromClass()}.txt"
+    private fun dayNumberFromClass(): Int {
+        return (Regex("Day(\\d+)")
+            .find(this.javaClass.simpleName)
+            ?.groupValues?.get(1)?.toInt()
+            ?: throw IllegalArgumentException("Day number not found"))
     }
-
-    private fun dayNumberFromClass(): String {
-        return Regex("Day\\d+").find(this.javaClass.simpleName)?.value?.lowercase()
-            ?: throw IllegalArgumentException("input not found")
-    }
-
 }
+
+
