@@ -11,7 +11,7 @@ class AOCClient {
 
     fun getInput(dayNumber: Int): List<String> {
         val file = File("${Paths.get("").toAbsolutePath()}/input/day${dayNumber}.txt")
-
+        file.parentFile.mkdirs()
         if (!file.exists()) {
             val request = Request.Builder()
                 .url("https://adventofcode.com/2023/day/${dayNumber}/input")
