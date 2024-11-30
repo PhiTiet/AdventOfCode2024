@@ -3,6 +3,7 @@ package client
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
+import java.nio.file.Path
 import java.nio.file.Paths
 
 class AOCClient {
@@ -10,7 +11,7 @@ class AOCClient {
     private val sessionCookie = this.javaClass.getResource("/session_cookie.txt")?.readText()
 
     fun getInput(dayNumber: Int): List<String> {
-        val file = File("${Paths.get("").toAbsolutePath()}/input/day${dayNumber}.txt")
+        val file = File("${repositoryRoot()}/input/day${dayNumber}.txt")
         file.parentFile.mkdirs()
         if (!file.exists()) {
             val request = Request.Builder()
@@ -23,6 +24,10 @@ class AOCClient {
 
         }
         return file.bufferedReader().readLines()
+    }
+
+    private fun repositoryRoot(): Path {
+        return Paths.get("").toAbsolutePath()
     }
 
 }
