@@ -1,4 +1,4 @@
-package model
+package client
 
 import okhttp3.OkHttpClient
 import okhttp3.Request

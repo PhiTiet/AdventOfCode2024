@@ -1,6 +1,6 @@
 package solution
 
-import model.AOCClient
+import client.AOCClient
 
 
 abstract class AbstractProblemSolver<A : Number> : ProblemSolver<A> {
