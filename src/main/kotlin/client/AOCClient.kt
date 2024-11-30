@@ -14,7 +14,7 @@ class AOCClient {
         file.parentFile.mkdirs()
         if (!file.exists()) {
             val request = Request.Builder()
-                .url("https://adventofcode.com/2023/day/${dayNumber}/input")
+                .url("https://adventofcode.com/2024/day/${dayNumber}/input")
                 .addHeader("Cookie", "session=${sessionCookie}")
                 .build()
             client.newCall(request).execute().use { response ->
