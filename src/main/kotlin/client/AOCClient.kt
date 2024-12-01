@@ -19,7 +19,9 @@ class AOCClient {
                 .addHeader("Cookie", "session=${sessionCookie}")
                 .build()
             client.newCall(request).execute().use { response ->
-                file.writer().write(response.body!!.string())
+                file.writer().use {
+                    it.write(response.body!!.string())
+                }
             }
 
         }
