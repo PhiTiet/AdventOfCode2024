@@ -24,16 +24,16 @@ class Day1ProblemSolver : AbstractProblemSolver<Int>() {
     }
 
     override fun partTwo(): Int {
-        var letSet : MutableSet<Int>  = mutableSetOf()
+        var leftSet : MutableSet<Int>  = mutableSetOf()
         var rightList : MutableList<Int>  = mutableListOf()
 
         input.forEach {
             val (left, right) = it.split("   ")
-            letSet.add(left.toInt())
+            leftSet.add(left.toInt())
             rightList.add(right.toInt())
         }
         val map: Map<Int, Int> = rightList.groupBy{it}.mapValues{it.value.size}
 
-        return  letSet.map {it * map.getOrDefault(it, 0) }.sum()
+        return  leftSet.map {it * map.getOrDefault(it, 0) }.sum()
     }
 }
