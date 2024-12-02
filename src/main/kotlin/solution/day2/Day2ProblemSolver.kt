@@ -29,8 +29,7 @@ class Day2ProblemSolver : AbstractProblemSolver<Int>() {
     private fun hasAtLeastOneValidSubset(report: List<Int>): Boolean {
         return report
             .mapIndexed { i, _ -> report.withoutItemAt(i) }
-            .map { isValidReport(it) }
-            .any { it }
+            .any { isValidReport(it) }
     }
 
     fun List<Int>.withoutItemAt(index: Int) = filterIndexed { i, _ -> i != index }
