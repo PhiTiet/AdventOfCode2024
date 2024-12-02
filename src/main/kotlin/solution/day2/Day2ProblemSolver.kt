@@ -7,7 +7,7 @@ import kotlin.math.sign
 
 class Day2ProblemSolver : AbstractProblemSolver<Int>() {
 
-    val reports = getPuzzleInput().map { it.split(" ").map { it.toInt() } }
+    val reports = getProblemInput().map { it.split(" ").map { it.toInt() } }
 
     override fun partOne(): Int {
         return reports

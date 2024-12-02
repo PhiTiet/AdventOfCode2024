@@ -5,7 +5,7 @@ import client.AOCClient
 
 abstract class AbstractProblemSolver<A : Number> : ProblemSolver<A> {
 
-    protected fun getPuzzleInput(): List<String> {
+    protected fun getProblemInput(): List<String> {
         return AOCClient().getInput(dayNumberFromClass())
     }
 

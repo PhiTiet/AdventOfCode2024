@@ -6,7 +6,7 @@ import kotlin.math.abs
 
 class Day1ProblemSolver : AbstractProblemSolver<Int>() {
     private val listDelimiter = "   "
-    private val input = getPuzzleInput()
+    private val input = getProblemInput()
 
     override fun partOne(): Int {
         var leftList: MutableList<Int> = mutableListOf()
