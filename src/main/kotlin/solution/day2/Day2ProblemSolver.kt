@@ -9,8 +9,8 @@ class Day2ProblemSolver : AbstractProblemSolver<Int>() {
     val input = getPuzzleInput()
 
     override fun partOne(): Int {
-        val listNumber: List<List<Int>> = input.map { it.split(" ").map { it.toInt() } }
-        return listNumber
+        val reports: List<List<Int>> = input.map { it.split(" ").map { it.toInt() } }
+        return reports
             .map { it.zipWithNext { a, b -> a - b } }
             .map { isValidDifference(it) }
             .count { it }
