@@ -17,8 +17,8 @@ class Day3ProblemSolver: AbstractProblemSolver<Int>() {
             .sumOf { it.first.toInt() * it.second.toInt() }
 
     override fun partTwo(): Int {
-        val command = extractRelevantCommandSegments()
-        return extractAndMultiplyCommands(command)
+        val extractedCommand = extractRelevantCommandSegments()
+        return extractAndMultiplyCommands(extractedCommand)
     }
 
     private fun extractRelevantCommandSegments(): String {
