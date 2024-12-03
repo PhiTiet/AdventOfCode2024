@@ -17,21 +17,26 @@ class Day3ProblemSolver: AbstractProblemSolver<Int>() {
             .sumOf { it.first.toInt() * it.second.toInt() }
 
     override fun partTwo(): Int {
+        val command = extractRelevantCommandSegments()
+        return extractAndMultiplyCommands(command)
+    }
+
+    private fun extractRelevantCommandSegments(): String {
         val doIndexes = matchIndexes(Regex("do\\(\\)")).toMutableList()
         val dontIndexes = matchIndexes(Regex("don't\\(\\)")).toMutableList()
         doIndexes.add(index = 0, element = 0)
         dontIndexes.add(index = dontIndexes.size, element = input.length - 1)
-        val doRanges = doIndexes.map { it..dontIndexes.smallestValueWhichIsLargerThan(it) }
-        val grouped = doRanges.groupBy { it.last }
-        val unique = grouped.map { a -> a.value.minBy { it.first } }
-        val subStrings = unique.map {  input.substring(it)}
-        val result = subStrings.reduce(String::plus)
-        return extractAndMultiplyCommands(result)
+        return doIndexes
+            .map { it..dontIndexes.smallestValueWhichIsLargerThan(it) }
+            .groupBy { it.last }
+            .map { a -> a.value.minBy { it.first } }
+            .map { input.substring(it) }
+            .reduce(String::plus)
     }
 
     private fun matchIndexes(regex: Regex): List<Int> {
         return regex.findAll(input).map { it.range.first }.toList()
     }
 
-    fun List<Int>.smallestValueWhichIsLargerThan(value: Int) = filter { it > value }.minOrNull()?: size
+    private fun List<Int>.smallestValueWhichIsLargerThan(value: Int) = filter { it > value }.min()
 }
