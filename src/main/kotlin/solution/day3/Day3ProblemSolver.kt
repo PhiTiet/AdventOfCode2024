@@ -22,12 +22,10 @@ class Day3ProblemSolver: AbstractProblemSolver<Int>() {
     }
 
     private fun extractRelevantCommandSegments(): String {
-        val doIndexes = matchIndexes(Regex("do\\(\\)")).toMutableList()
-        val dontIndexes = matchIndexes(Regex("don't\\(\\)")).toMutableList()
-        doIndexes.add(index = 0, element = 0)
-        dontIndexes.add(index = dontIndexes.size, element = input.length - 1)
+        val doIndexes = listOf(0) + matchIndexes(Regex("do\\(\\)"))
+        val dontIndexes = matchIndexes(Regex("don't\\(\\)")) + listOf(input.length - 1)
         return doIndexes
-            .map { it..dontIndexes.smallestValueWhichIsLargerThan(it) }
+            .map { doIndex -> doIndex..dontIndexes.filter { it > doIndex }.min() }
             .groupBy { it.last }
             .map { a -> a.value.minBy { it.first } }
             .map { input.substring(it) }
@@ -38,5 +36,4 @@ class Day3ProblemSolver: AbstractProblemSolver<Int>() {
         return regex.findAll(input).map { it.range.first }.toList()
     }
 
-    private fun List<Int>.smallestValueWhichIsLargerThan(value: Int) = filter { it > value }.min()
 }
