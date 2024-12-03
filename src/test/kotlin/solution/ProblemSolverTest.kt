@@ -3,6 +3,7 @@ package solution
 import org.junit.jupiter.api.Test
 import solution.day1.Day1ProblemSolver
 import solution.day2.Day2ProblemSolver
+import solution.day3.Day3ProblemSolver
 import kotlin.test.assertEquals
 
 class ProblemSolverTest {
@@ -14,6 +15,11 @@ class ProblemSolverTest {
     @Test
     fun dayTwo() {
         verify(Day2ProblemSolver(), answerOne = 686, answerTwo = 717)
+    }
+
+    @Test
+    fun dayThree() {
+        verify(Day3ProblemSolver(), answerOne = 166630675, answerTwo = 0)
     }
 
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
