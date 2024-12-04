@@ -8,10 +8,10 @@ class Day4ProblemSolver : AbstractProblemSolver<Int>() {
 
     val input = getProblemInput()
 
-    val grid = WordGrid(input.map { it.trim().toCharArray().toList().map { WordGridElement(it.toString()) } })
+    val grid = WordGrid(input.map { it.trim().toCharArray().toList().map { a ->  WordGridElement(a.toString()) } })
 
     override fun partOne(): Int {
-        grid.displayGrid()
+
         return 0
     }
 
