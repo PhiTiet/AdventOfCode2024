@@ -9,8 +9,8 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     }
 
     private fun isValidGrid(grid: List<List<E>>) {
-        require(grid.all { row -> row.size == grid.size }) { "Grid must be square)" }
         require(grid.isNotEmpty()) { "Grid must not be empty" }
+        require(grid.all { row -> row.size == grid.size }) { "Grid must be square)" }
     }
 
     open operator fun get(x: Int, y: Int): E {
