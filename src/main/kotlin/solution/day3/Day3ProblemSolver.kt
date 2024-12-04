@@ -25,7 +25,7 @@ class Day3ProblemSolver: AbstractProblemSolver<Int>() {
         val doIndexes = listOf(0) + matchIndexes(Regex("do\\(\\)"))
         val dontIndexes = matchIndexes(Regex("don't\\(\\)")) + listOf(input.length - 1)
         return doIndexes
-            .map { doIndex -> doIndex..dontIndexes.filter { it > doIndex }.min() }
+            .map { doIndex -> doIndex until dontIndexes.filter { it > doIndex }.min() }
             .groupBy { it.last }
             .map { a -> a.value.minBy { it.first } }
             .map { input.substring(it) }

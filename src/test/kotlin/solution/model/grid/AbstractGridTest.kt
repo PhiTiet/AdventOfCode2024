@@ -33,13 +33,13 @@ class AbstractGridTest {
     @Test
     fun accessedCorrectly() {
         val grid = TestGrid(elements)
-        assertThat(grid.getElement(0, 0).type).isEqualTo(TestType.A)
+        assertThat(grid[0, 0].type).isEqualTo(TestType.A)
     }
 
 
     @Test
     fun accessedOutOfBounds() {
         val grid = TestGrid(elements)
-        assertThrows<IllegalArgumentException>{ grid.getElement(grid.size, grid.size) }
+        assertThrows<IllegalArgumentException> { grid[grid.size, grid.size] }
     }
 }

@@ -13,7 +13,7 @@ abstract class AbstractGrid<E : AbstractGridElement>(private val elements: List<
         require(grid.isNotEmpty()) { "Grid must not be empty" }
     }
 
-    fun getElement(x: Int, y: Int): E {
+    operator fun get(x: Int, y: Int): E {
         require(x in sizeRange && y in sizeRange) { "Coordinates out of bounds" }
         return elements[x][y]
     }
