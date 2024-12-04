@@ -1,8 +1,8 @@
 package solution.model.grid
 
-abstract class AbstractGrid<E : AbstractGridElement>(private val elements: List<List<E>>) {
+abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: List<List<E>>) {
     val size: Int = elements.size
-    private val sizeRange: IntRange = 0 until size
+    val sizeRange: IntRange = 0 until size
 
     init {
         isValidGrid(elements)
@@ -13,7 +13,7 @@ abstract class AbstractGrid<E : AbstractGridElement>(private val elements: List<
         require(grid.isNotEmpty()) { "Grid must not be empty" }
     }
 
-    operator fun get(x: Int, y: Int): E {
+    open operator fun get(x: Int, y: Int): E {
         require(x in sizeRange && y in sizeRange) { "Coordinates out of bounds" }
         return elements[x][y]
     }
