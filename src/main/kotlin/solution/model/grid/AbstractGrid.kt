@@ -14,8 +14,12 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     }
 
     open operator fun get(x: Int, y: Int): E {
+        return get(x, y) { it }
+    }
+
+    open operator fun <T> get(x: Int, y: Int, transform: (E) -> T): T {
         require(x in sizeRange && y in sizeRange) { "Coordinates out of bounds" }
-        return elements[x][y]
+        return transform.invoke(elements[x][y])
     }
 
     fun displayGrid() {
