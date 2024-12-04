@@ -4,10 +4,10 @@ import solution.model.grid.AbstractGrid
 
 class WordGrid(elements: List<List<WordGridElement>>) : AbstractGrid<WordGridElement>(elements) {
 
-    override operator fun get(x: Int, y: Int): WordGridElement {
+    fun symbolAt(x: Int, y: Int): String {
         if (x in sizeRange && y in sizeRange) {
-            return elements[x][y]
+            return elements[x][y].symbol
         }
-        return WordGridElement("Q")
+        return "$"
     }
 }
