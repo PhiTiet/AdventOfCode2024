@@ -10,7 +10,7 @@ class AOCClient {
     private val client: OkHttpClient = OkHttpClient()
     private val sessionCookie = this.javaClass.getResource("/session_cookie.txt")?.readText()
 
-    fun getInput(dayNumber: Int): List<String> {
+    fun getInput(dayNumber: Int, delimiter: String = "\n"): List<String> {
         val file = File("${repositoryRoot()}/input/day${dayNumber}.txt")
         file.parentFile.mkdirs()
         if (!file.exists()) {
@@ -23,10 +23,11 @@ class AOCClient {
                     it.write(response.body!!.string())
                 }
             }
-
         }
-        return file.bufferedReader().readLines()
+
+        return file.readText().trim().split(delimiter)
     }
+
 
     private fun repositoryRoot(): Path {
         return Paths.get("").toAbsolutePath()
