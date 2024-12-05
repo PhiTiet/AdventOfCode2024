@@ -18,7 +18,7 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     }
 
     open operator fun <T> get(x: Int, y: Int, transform: (E) -> T): T {
-        require(x in sizeRange && y in sizeRange) { "Coordinates out of bounds" }
+        require((x in sizeRange) and (y in sizeRange)) { "Coordinates out of bounds" }
         return transform.invoke(elements[x][y])
     }
 
