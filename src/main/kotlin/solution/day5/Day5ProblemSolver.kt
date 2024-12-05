@@ -18,16 +18,16 @@ class Day5ProblemSolver : AbstractProblemSolver<Int>() {
 
     override fun partTwo(): Int {
         return pages.filter { !isValidPage(it) }.map { it.toMutableList() }
-            .map { moveAll(it) }
+            .map { reorderUsingRules(it) }
             .map { it[it.size / 2] }
             .sum()
     }
 
     private fun isValidPage(page: List<Int>): Boolean {
-        return rules.map { allBefore(page, it) }.all { it }
+        return rules.map { ruleApplies(page, it) }.all { it }
     }
 
-    fun allBefore(list: List<Int>, pageRule: PageRule): Boolean {
+    fun ruleApplies(list: List<Int>, pageRule: PageRule): Boolean {
         val firstIndex = list.indexOfLast { it == pageRule.before }
         val secondIndex = list.indexOfFirst { it == pageRule.after }
 
@@ -35,9 +35,9 @@ class Day5ProblemSolver : AbstractProblemSolver<Int>() {
     }
 
 
-    fun moveAll(pages: MutableList<Int>): MutableList<Int> {
+    fun reorderUsingRules(pages: MutableList<Int>): MutableList<Int> {
         var ret = pages
-        while (!isValidPage(ret)){
+        while (!isValidPage(ret)) {
             rules = rules.shuffled()
             rules.forEach { ret = moveItem(ret, it) }
         }
@@ -46,16 +46,15 @@ class Day5ProblemSolver : AbstractProblemSolver<Int>() {
     }
 
     fun moveItem(pages: MutableList<Int>, pageRule: PageRule): MutableList<Int> {
-        if (pageRule.before !in pages || pageRule.after !in pages) {
+        val fromIndex = pages.lastIndexOf(pageRule.before)
+        val toIndex = pages.indexOf(pageRule.after)
+
+        if (fromIndex == -1 || toIndex == -1 || fromIndex < toIndex) {
             return pages
         }
-        val fromIndex = pages.indexOfLast { it == pageRule.before }
-        val toIndex = pages.indexOfFirst { it == pageRule.after }
 
-        if (fromIndex < toIndex) return pages
-
-        val item = pages.removeAt(fromIndex)
-        pages.add(toIndex, item)
+        pages.add(toIndex, pages.removeAt(fromIndex))
         return pages
     }
+
 }
