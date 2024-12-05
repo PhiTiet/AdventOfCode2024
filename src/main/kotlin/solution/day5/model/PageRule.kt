@@ -1,4 +1,3 @@
 package solution.day5.model
 
-class PageRule(val before: Int, val after: Int) {
-}
+class PageRule(val before: Int, val after: Int)

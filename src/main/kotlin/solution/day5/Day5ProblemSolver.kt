@@ -38,10 +38,8 @@ class Day5ProblemSolver : AbstractProblemSolver<Int>() {
     fun reorderUsingRules(pages: MutableList<Int>): MutableList<Int> {
         var ret = pages
         while (!isValidPage(ret)) {
-            rules = rules.shuffled()
             rules.forEach { ret = moveItem(ret, it) }
         }
-
         return ret
     }
 
