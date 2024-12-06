@@ -11,7 +11,9 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
 
     private val input = getProblemInput()
 
-    private val grid =  ObstacleGrid(input.map { it.trim().toCharArray().toList().map { a -> ObstacleGridElement(a.toString()) } })
+    private val grid =  ObstacleGrid(input
+            .map { it.trim().toCharArray().toList().map { a -> ObstacleGridElement(a.toString()) }.toMutableList() }
+            .toMutableList())
 
     override fun partOne(): Int {
         traverseGrid()
@@ -19,6 +21,7 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
     }
     override fun partTwo(): Int {
         traverseGrid()
+        val test = grid
         return 0
     }
 

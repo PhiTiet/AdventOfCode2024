@@ -1,6 +1,6 @@
 package solution.model.grid
 
-abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: List<List<E>>) {
+abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: MutableList<MutableList<E>>) {
     val size: Int = elements.size
     val sizeRange: IntRange = 0 until size
 
