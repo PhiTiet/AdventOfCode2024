@@ -25,8 +25,13 @@ enum class Direction {
 
         }
 
-        fun applyToCoordinates(x: Int, y: Int, direction: Direction): Pair<Int,Int>{
-            return Pair(0,0)
+        fun move(y: Int, x: Int, direction: Direction): Pair<Int, Int> {
+            return when (direction) {
+                NORTH -> Pair(y + 1, x)
+                EAST -> Pair(y, x + 1)
+                SOUTH -> Pair(y - 1, x)
+                WEST -> Pair(y, x - 1)
+            }
         }
     }
 }

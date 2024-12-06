@@ -23,14 +23,26 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     }
 
     fun firstIndexWhere(predicate: (E) -> Boolean): Pair<Int, Int> {
-        for (i in 0 until size) {
-            for (j in 0 until size) {
-                if (predicate(elements[i][j])) {
-                    return Pair(i, j)
+        for (y in sizeRange) {
+            for (x in sizeRange) {
+                if (predicate(elements[y][x])) {
+                    return Pair(y, x)
                 }
             }
         }
         throw IllegalStateException("no index found matching predicate")
+    }
+
+    fun count(predicate: (E) -> Boolean): Int {
+        var count = 0
+        for (y in sizeRange) {
+            for (x in sizeRange) {
+                if (predicate(elements[y][x])) {
+                    count++
+                }
+            }
+        }
+        return count
     }
 
     fun displayGrid() {
