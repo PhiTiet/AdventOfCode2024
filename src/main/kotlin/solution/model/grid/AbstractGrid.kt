@@ -33,6 +33,18 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         throw IllegalStateException("no index found matching predicate")
     }
 
+    fun allIndexesWhere(predicate: (E) -> Boolean):  List<Pair<Int,Int>> {
+        val ret: MutableList<Pair<Int,Int>> = mutableListOf()
+        for (y in sizeRange) {
+            for (x in sizeRange) {
+                if (predicate(elements[y][x])) {
+                    ret.add(Pair(y, x))
+                }
+            }
+        }
+        return ret.toList()
+    }
+
     fun count(predicate: (E) -> Boolean): Int {
         var count = 0
         for (y in sizeRange) {
