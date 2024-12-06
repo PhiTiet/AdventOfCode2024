@@ -11,7 +11,7 @@ enum class Direction {
 
     fun left(): Direction {
         val values = values()
-        return values[(ordinal - 1 + values.size) % values.size]
+        return values[(ordinal + 3) % values.size]
     }
 
     fun reverse(): Direction {
