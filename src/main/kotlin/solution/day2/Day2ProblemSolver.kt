@@ -1,7 +1,6 @@
 package solution.day2
 
 import solution.AbstractProblemSolver
-import kotlin.collections.zipWithNext
 import kotlin.math.abs
 import kotlin.math.sign
 
@@ -10,15 +9,12 @@ class Day2ProblemSolver : AbstractProblemSolver<Int>() {
     val reports = getProblemInput().map { it.split(" ").map { it.toInt() } }
 
     override fun partOne(): Int {
-        return reports
-            .map { isValidReport(it) }
-            .count { it }
+        return reports.count{ isValidReport(it) }
+
     }
 
     override fun partTwo(): Int {
-        return reports
-            .map { hasAtLeastOneValidSubset(it) }
-            .count { it }
+        return reports.count { hasAtLeastOneValidSubset(it) }
     }
 
     private fun isValidReport(report: List<Int>): Boolean {

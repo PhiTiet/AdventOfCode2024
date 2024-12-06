@@ -22,9 +22,7 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
         traverseGrid()
         val visitedIndexes = grid.allIndexesWhere { it.visited }.minus(startingIndex())
 
-        return visitedIndexes
-            .map { getsStuckInLoop(gridWithBlockade(it)) }
-            .count{it}
+        return visitedIndexes.count { getsStuckInLoop(gridWithBlockade(it)) }
     }
 
     private fun gridWithBlockade(blockade: Pair<Int, Int>): ObstacleGrid {

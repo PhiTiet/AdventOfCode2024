@@ -2,7 +2,6 @@ package solution.day5
 
 import solution.AbstractProblemSolver
 import solution.day5.model.PageRule
-import kotlin.collections.map
 
 class Day5ProblemSolver : AbstractProblemSolver<Int>() {
     private val input = getProblemInput("\n\n")
@@ -12,15 +11,13 @@ class Day5ProblemSolver : AbstractProblemSolver<Int>() {
     override fun partOne(): Int {
         return pages
             .filter { isValidPage(it) }
-            .map { it[it.size / 2] }
-            .sum()
+            .sumOf { it[it.size / 2] }
     }
 
     override fun partTwo(): Int {
         return pages.filter { !isValidPage(it) }.map { it.toMutableList() }
             .map { reorderUsingRules(it) }
-            .map { it[it.size / 2] }
-            .sum()
+            .sumOf { it[it.size / 2] }
     }
 
     private fun isValidPage(page: List<Int>): Boolean {
