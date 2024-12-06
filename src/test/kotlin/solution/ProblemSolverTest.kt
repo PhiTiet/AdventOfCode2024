@@ -34,6 +34,11 @@ class ProblemSolverTest {
         verify(Day5ProblemSolver(), answerOne = 6242, answerTwo = 5169)
     }
 
+    @Test
+    fun daySix() {
+        verify(Day6ProblemSolver(), answerOne = 0, answerTwo = 0)
+    }
+
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
         assertEquals(answerOne, solver.partOne())
         assertEquals(answerTwo, solver.partTwo())
