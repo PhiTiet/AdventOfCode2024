@@ -3,7 +3,7 @@ package solution.model
 enum class Direction {
     NORTH, EAST, SOUTH, WEST;
 
-    private val arrowSymbols = listOf("^", ">", "v", "<")
+
 
     fun right(): Direction {
         return values()[(ordinal + 1) % values().size]
@@ -17,9 +17,16 @@ enum class Direction {
         return values()[(ordinal + 2) % values().size]
     }
 
-    fun arrowSymbolToDirection(symbol: String): Direction {
-        require(arrowSymbols.contains(symbol)) { "$symbol is not a valid direction" }
-        return values()[arrowSymbols.indexOf(symbol)]
+    companion object {
+        private val arrowSymbols = listOf("^", ">", "v", "<")
+        fun toDirection(symbol: String): Direction {
+            require(arrowSymbols.contains(symbol)) { "$symbol is not a valid direction" }
+            return values()[arrowSymbols.indexOf(symbol)]
 
+        }
+
+        fun applyToCoordinates(x: Int, y: Int, direction: Direction): Pair<Int,Int>{
+            return Pair(0,0)
+        }
     }
 }

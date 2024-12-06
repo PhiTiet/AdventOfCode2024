@@ -4,5 +4,5 @@ import solution.model.grid.AbstractGridElement
 
 class ObstacleGridElement(symbol: String) : AbstractGridElement(symbol) {
     fun isObstacle() : Boolean = symbol == "#"
-    var visted = 0
+    var visited = false
 }
