@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class AbstractGridTest {
-    private var elements: MutableList<MutableList<TestGridElement>>
+    private var elements: List<List<TestGridElement>>
 
     init {
         val strings = listOf(listOf("a", "b", "a"), listOf("b", "a", "b"), listOf("a", "b", "a"))
-        elements = strings.map { it.map { a -> TestGridElement(a) }.toMutableList() }.toMutableList()
+        elements = strings.map { it.map { a -> TestGridElement(a) } }.toList()
     }
 
     @Test
@@ -21,13 +21,13 @@ class AbstractGridTest {
     @Test
     fun mustBeSquare() {
         val strings = listOf(listOf("a", "b", "a"), listOf("b", "a", "b"))
-        val elements = strings.map { it.map { a -> TestGridElement(a) }.toMutableList() }.toMutableList()
+        val elements = strings.map { it.map { a -> TestGridElement(a) } }.toList()
         assertThrows<IllegalArgumentException> { TestGrid(elements) }
     }
 
     @Test
     fun mustNotBeEmpty() {
-        assertThrows<IllegalArgumentException> { TestGrid(mutableListOf()) }
+        assertThrows<IllegalArgumentException> { TestGrid(emptyList()) }
     }
 
     @Test

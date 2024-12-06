@@ -1,5 +1,5 @@
 package solution.model.grid
 
-class TestGrid(elements: MutableList<MutableList<TestGridElement>>) : AbstractGrid<TestGridElement>(elements) {
+class TestGrid(elements: List<List<TestGridElement>>) : AbstractGrid<TestGridElement>(elements) {
 
 }

@@ -8,7 +8,7 @@ class Day4ProblemSolver : AbstractProblemSolver<Int>() {
 
     private val input = getProblemInput()
     private val grid =
-        WordGrid(input.map { it.trim().toCharArray().toList().map { a -> WordGridElement(a.toString()) }.toMutableList() }.toMutableList())
+        WordGrid(input.map { it.trim().toCharArray().toList().map { a -> WordGridElement(a.toString()) } })
 
     override fun partOne(): Int {
         val stringToFind = "XMAS"
