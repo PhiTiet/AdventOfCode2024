@@ -46,15 +46,7 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     }
 
     fun count(predicate: (E) -> Boolean): Int {
-        var count = 0
-        for (y in sizeRange) {
-            for (x in sizeRange) {
-                if (predicate(elements[y][x])) {
-                    count++
-                }
-            }
-        }
-        return count
+        return allIndexesWhere { predicate.invoke(it) }.count()
     }
 
     fun print(printSymbol: String = "@", predicate: (E) -> Boolean) {

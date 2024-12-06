@@ -9,7 +9,6 @@ import solution.model.Direction.Companion.toDirection
 class Day6ProblemSolver : AbstractProblemSolver<Int>() {
 
     private val input = getProblemInput()
-
     private lateinit var grid: ObstacleGrid
 
     override fun partOne(): Int {
