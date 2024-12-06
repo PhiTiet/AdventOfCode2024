@@ -22,6 +22,17 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         return transform.invoke(elements[x][y])
     }
 
+    fun firstIndexWhere(predicate: (E) -> Boolean): Pair<Int, Int> {
+        for (i in 0 until size) {
+            for (j in 0 until size) {
+                if (predicate(elements[i][j])) {
+                    return Pair(i, j)
+                }
+            }
+        }
+        throw IllegalStateException("no index found matching predicate")
+    }
+
     fun displayGrid() {
         elements.forEach { row ->
             println(row.map { e -> e.symbol })
