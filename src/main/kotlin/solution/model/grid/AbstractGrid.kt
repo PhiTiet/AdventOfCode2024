@@ -57,10 +57,10 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         return count
     }
 
-    fun print(predicate: (E) -> Boolean) {
+    fun print(printSymbol: String = "@", predicate: (E) -> Boolean) {
         for (y in sizeRange) {
             for (x in sizeRange) {
-                print(if (predicate(elements[y][x])) "#" else ".")
+                print(if (predicate(elements[y][x])) printSymbol else elements[y][x].symbol)
             }
             println()
         }

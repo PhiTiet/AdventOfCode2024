@@ -22,6 +22,7 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
         grid = readGrid()
         traverseGrid()
         val visitedIndexes = grid.allIndexesWhere { it.visited }.minus(startingIndex())
+
         return visitedIndexes
             .map { getsStuckInLoop(gridWithBlockade(it)) }
             .count{it}
@@ -69,11 +70,19 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
 
             val (aheadY, aheadX) = move(y, x, direction)
             if (aheadY !in obstacleGrid.sizeRange || aheadX !in obstacleGrid.sizeRange) {
-                break
+                return false
             }
             if (obstacleGrid[aheadY, aheadX].isObstacle()) {
                 direction = direction.right()
+                val (doubleY, doubleX) = move(y, x, direction)
+                if (doubleY !in obstacleGrid.sizeRange || doubleX !in obstacleGrid.sizeRange) {
+                    return false
+                }
+                if(obstacleGrid[doubleY, doubleX].isObstacle()){
+                    direction = direction.right()
+                }
             }
+
             val (nextY, nextX) = move(y, x, direction)
             y = nextY
             x = nextX
