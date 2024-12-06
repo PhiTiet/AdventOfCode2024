@@ -13,13 +13,13 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         require(grid.all { row -> row.size == grid.size }) { "Grid must be square)" }
     }
 
-    open operator fun get(x: Int, y: Int): E {
-        return get(x, y) { it }
+    open operator fun get(y: Int, x: Int): E {
+        return get(y, x) { it }
     }
 
-    open operator fun <T> get(x: Int, y: Int, transform: (E) -> T): T {
-        require((x in sizeRange) and (y in sizeRange)) { "Coordinates out of bounds" }
-        return transform.invoke(elements[x][y])
+    open operator fun <T> get(y: Int, x: Int, transform: (E) -> T): T {
+        require((y in sizeRange) and (x in sizeRange)) { "Coordinates out of bounds" }
+        return transform.invoke(elements[y][x])
     }
 
     fun firstIndexWhere(predicate: (E) -> Boolean): Pair<Int, Int> {

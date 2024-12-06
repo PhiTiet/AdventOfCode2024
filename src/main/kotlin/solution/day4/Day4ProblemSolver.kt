@@ -13,21 +13,21 @@ class Day4ProblemSolver : AbstractProblemSolver<Int>() {
     override fun partOne(): Int {
         val stringToFind = "XMAS"
         var hits = 0
-        for (x in grid.sizeRange) {
-            for (y in grid.sizeRange) {
-                if (grid.symbolAt(x, y) != stringToFind.first().toString()) {
+        for (y in grid.sizeRange) {
+            for (x in grid.sizeRange) {
+                if (grid.symbolAt(y, x) != stringToFind.first().toString()) {
                     continue
                 }
                 val search: MutableList<String> = MutableList(8) { "" }
                 for (k in 0 until stringToFind.length) {
-                    search[0] += grid.symbolAt(x - k, y)        //up
-                    search[1] += grid.symbolAt(x - k, y + k)    //up-right
-                    search[2] += grid.symbolAt(x, y + k)        //right
-                    search[3] += grid.symbolAt(x + k, y + k)    //right-down
-                    search[4] += grid.symbolAt(x + k, y)        //down
-                    search[5] += grid.symbolAt(x + k, y - k)    //down-left
-                    search[6] += grid.symbolAt(x, y - k)        //left
-                    search[7] += grid.symbolAt(x - k, y - k)    //left-up
+                    search[0] += grid.symbolAt(y - k, x)           //down
+                    search[1] += grid.symbolAt(y - k, x + k)    //down right
+                    search[2] += grid.symbolAt(y, x + k)           //right
+                    search[3] += grid.symbolAt(y + k, x + k)    //up-right
+                    search[4] += grid.symbolAt(y + k, x)           //up
+                    search[5] += grid.symbolAt(y + k, x - k)    //up left
+                    search[6] += grid.symbolAt(y, x - k)           //left
+                    search[7] += grid.symbolAt(y - k, x - k)    //down-left
                 }
                 hits += search.count { it == stringToFind }
 
