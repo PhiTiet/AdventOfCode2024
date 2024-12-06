@@ -74,11 +74,11 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
             }
             if (obstacleGrid[aheadY, aheadX].isObstacle()) {
                 direction = direction.right()
-                val (doubleY, doubleX) = move(y, x, direction)
-                if (doubleY !in obstacleGrid.sizeRange || doubleX !in obstacleGrid.sizeRange) {
+                val (doubleTurnY, doubleTurnX) = move(y, x, direction)
+                if (doubleTurnY !in obstacleGrid.sizeRange || doubleTurnX !in obstacleGrid.sizeRange) {
                     return false
                 }
-                if(obstacleGrid[doubleY, doubleX].isObstacle()){
+                if(obstacleGrid[doubleTurnY, doubleTurnX].isObstacle()){
                     direction = direction.right()
                 }
             }
