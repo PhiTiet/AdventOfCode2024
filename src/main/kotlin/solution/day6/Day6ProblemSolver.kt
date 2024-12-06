@@ -3,6 +3,7 @@ package solution.day6
 import solution.AbstractProblemSolver
 import solution.day6.model.ObstacleGrid
 import solution.day6.model.ObstacleGridElement
+import solution.model.Direction
 import solution.model.Direction.Companion.move
 import solution.model.Direction.Companion.toDirection
 
@@ -13,23 +14,41 @@ class Day6ProblemSolver : AbstractProblemSolver<Int>() {
     private val grid =  ObstacleGrid(input.map { it.trim().toCharArray().toList().map { a -> ObstacleGridElement(a.toString()) } })
 
     override fun partOne(): Int {
-        var (y,x) = grid.firstIndexWhere { (it.symbol != ".") and (it.symbol != "#") }
-        var direction = toDirection(grid[y,x].symbol)
+        traverseGrid()
+        return grid.count { it.visited }
+    }
+    override fun partTwo(): Int {
+        traverseGrid()
+        return 0
+    }
 
-        while (y in grid.sizeRange && x in grid.sizeRange){
-            grid[y,x].visited = true
-            val (aheadY, aheadX) = move(y,x, direction)
-            if (grid[aheadY,aheadX].isObstacle()){
+    private fun traverseGrid() : Boolean {
+        var (y, x) = grid.firstIndexWhere { (it.symbol != ".") and (it.symbol != "#") }
+        var direction = toDirection(grid[y, x].symbol)
+        val visited: MutableMap<Pair<Int, Int>, MutableSet<Direction>> = mutableMapOf()
+
+        while (y in grid.sizeRange && x in grid.sizeRange) {
+            if (visited.containsKey(Pair(y,x)) && visited[Pair(y, x)]!!.contains(direction)) {
+                return true
+            }
+
+            if (visited.containsKey(Pair(y,x))){
+                visited[Pair(y,x)]!!.add(direction)
+            }
+            grid[y, x].visited = true
+            val (aheadY, aheadX) = move(y, x, direction)
+            if (aheadY !in grid.sizeRange || aheadX !in grid.sizeRange) {
+                break
+            }
+            if (grid[aheadY, aheadX].isObstacle()) {
                 direction = direction.right()
             }
-            val (nextY, nextX) = move(y,x,direction)
+            val (nextY, nextX) = move(y, x, direction)
             y = nextY
             x = nextX
         }
-        return grid.count{it.visited}
+        return false
     }
 
-    override fun partTwo(): Int {
-        return 0
-    }
+
 }

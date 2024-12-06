@@ -45,6 +45,15 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         return count
     }
 
+    fun print(predicate: (E) -> Boolean) {
+        for (y in sizeRange) {
+            for (x in sizeRange) {
+                print(if (predicate(elements[y][x])) "#" else ".")
+            }
+            println()
+        }
+    }
+
     fun displayGrid() {
         elements.forEach { row ->
             println(row.map { e -> e.symbol })
