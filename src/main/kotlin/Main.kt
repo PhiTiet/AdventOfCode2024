@@ -1,4 +1,4 @@
-import solution.Day6ProblemSolver
+import solution.day6.Day6ProblemSolver
 
 fun main(){
     val currentSolver = Day6ProblemSolver()

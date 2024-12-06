@@ -1,4 +1,6 @@
-package solution
+package solution.day6
+
+import solution.AbstractProblemSolver
 
 class Day6ProblemSolver : AbstractProblemSolver<Int>() {
 

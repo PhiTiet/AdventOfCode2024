@@ -6,6 +6,7 @@ import solution.day2.Day2ProblemSolver
 import solution.day3.Day3ProblemSolver
 import solution.day4.Day4ProblemSolver
 import solution.day5.Day5ProblemSolver
+import solution.day6.Day6ProblemSolver
 import kotlin.test.assertEquals
 
 class ProblemSolverTest {
