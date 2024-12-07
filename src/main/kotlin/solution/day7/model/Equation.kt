@@ -13,9 +13,11 @@ class Equation(val result: Long, val operands: List<Long>) {
         for (i in 0..operands.size - 2) {
             if (sequence[i] == "*") {
                 result *= operands[i + 1]
-            } else if (sequence[i] == "+") {
+            }
+            else if (sequence[i] == "+") {
                 result += operands[i + 1]
-            } else if (sequence[i] == "||") {
+            }
+            else if (sequence[i] == "||") {
                 result = stringConcatenate(result, operands[i + 1])
             }
         }
