@@ -15,7 +15,5 @@ class Day7ProblemSolver: AbstractProblemSolver<Long>() {
 
     override fun partTwo(): Long {
         return equations.filter { it.hasSolution(listOf("+", "*", "||")) }.sumOf { it.result }
-
-        return 0
     }
 }

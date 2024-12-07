@@ -18,15 +18,15 @@ class Equation(val result: Long, val operands: List<Long>) {
                 result += operands[i + 1]
             }
             else if (sequence[i] == "||") {
-                result = stringConcatenate(result, operands[i + 1])
+                result = result concat operands[i + 1]
             }
         }
         return result
 
     }
 
-    private fun stringConcatenate(a: Long, b: Long): Long {
-        return (a.toString() + b.toString()).toLong()
+    private infix fun Long.concat(other: Long): Long {
+        return (this.toString() + other.toString()).toLong()
     }
 
     private fun operatorCombinations(operators: List<String>, size: Int): List<List<String>> {
