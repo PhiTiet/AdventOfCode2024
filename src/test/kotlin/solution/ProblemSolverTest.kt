@@ -7,6 +7,7 @@ import solution.day3.Day3ProblemSolver
 import solution.day4.Day4ProblemSolver
 import solution.day5.Day5ProblemSolver
 import solution.day6.Day6ProblemSolver
+import solution.day7.Day7ProblemSolver
 import kotlin.test.assertEquals
 
 class ProblemSolverTest {
@@ -38,6 +39,11 @@ class ProblemSolverTest {
     @Test
     fun daySix() {
         verify(Day6ProblemSolver(), answerOne = 4977, answerTwo = 1729)
+    }
+
+    @Test
+    fun daySeven(){
+        verify(Day7ProblemSolver(), answerOne = 0, answerTwo = 0)
     }
 
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
