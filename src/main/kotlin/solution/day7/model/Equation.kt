@@ -3,8 +3,9 @@ package solution.day7.model
 class Equation(val result: Long, val operands: List<Long>) {
 
     fun hasSolution(operators: List<String>): Boolean {
-        val sequences = allSequences(operators, operands.size - 1)
-        return sequences.map { applySequence(it, operands) }.contains(result)
+        return operatorCombinations(operators, operands.size - 1)
+            .map { applySequence(it, operands) }
+            .any { it == result }
     }
 
     private fun applySequence(sequence: List<String>, operands: List<Long>): Long {
@@ -26,11 +27,12 @@ class Equation(val result: Long, val operands: List<Long>) {
         return (a.toString() + b.toString()).toLong()
     }
 
-    private fun allSequences(elements: List<String>, size: Int): List<List<String>> {
+    private fun operatorCombinations(operators: List<String>, size: Int): List<List<String>> {
         if (size == 0) return listOf(emptyList())
-        val smallerLists = allSequences(elements, size - 1)
+        val smallerLists = operatorCombinations(operators, size - 1)
         return smallerLists.flatMap { smallerList ->
-            elements.map { element -> smallerList + element }
+            operators.map { element -> smallerList + element }
         }
     }
+
 }
