@@ -1,7 +1,7 @@
-import solution.day7.Day7ProblemSolver
+import solution.day8.Day8ProblemSolver
 
 fun main(){
-    val currentSolver = Day7ProblemSolver()
+    val currentSolver = Day8ProblemSolver()
     println("PART ONE: ${currentSolver.partOne()}")
     println("PART TWO: ${currentSolver.partTwo()}")
 }
