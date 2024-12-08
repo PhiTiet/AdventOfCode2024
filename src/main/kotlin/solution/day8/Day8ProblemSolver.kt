@@ -10,16 +10,16 @@ class Day8ProblemSolver : AbstractProblemSolver<Int>() {
 
 
     override fun partOne(): Int {
-        grid
-            .allIndexesWhere { it.isAntenna() }
+        grid.allIndexesWhere { it.isAntenna() }
             .forEach { markAntiNodes(it) }
+
         return grid.count { it.isAntiNode }
     }
 
     override fun partTwo(): Int {
-        grid
-            .allIndexesWhere { it.isAntenna() }
+        grid.allIndexesWhere { it.isAntenna() }
             .forEach { markAdvancedAntiNodes(it) }
+
         return grid.count { it.isAntiNode or it.isAntenna() }
     }
 
