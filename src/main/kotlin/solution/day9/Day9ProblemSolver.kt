@@ -8,6 +8,7 @@ class Day9ProblemSolver :AbstractProblemSolver<Int>() {
     private val diskMap = DiskMap(getProblemInput().first())
 
     override fun partOne(): Int {
+        print(diskMap)
         return 0
     }
 
