@@ -3,16 +3,18 @@ package solution.day9
 import solution.AbstractProblemSolver
 import solution.day9.model.DiskMap
 
-class Day9ProblemSolver :AbstractProblemSolver<Int>() {
+class Day9ProblemSolver :AbstractProblemSolver<Long>() {
 
-    private val diskMap = DiskMap(getProblemInput().first())
+    private var diskMap = DiskMap(getProblemInput().first())
 
-    override fun partOne(): Int {
-        print(diskMap)
-        return 0
+    override fun partOne(): Long {
+        diskMap.partition()
+        return diskMap.checksum()
     }
 
-    override fun partTwo(): Int {
-        return 0
+    override fun partTwo(): Long {
+        diskMap = DiskMap(getProblemInput().first())
+        diskMap.partitionFullSegments()
+        return diskMap.checksum()
     }
 }
