@@ -61,7 +61,7 @@ class DiskMap(input: String) {
                 stringIndex += segments[i].size
                 continue
             }
-            var current = segments[i] as DiskSegmentFilled
+            val current = segments[i] as DiskSegmentFilled
             for (j in 0 until current.size){
                 result += current.id * stringIndex
                 stringIndex++
