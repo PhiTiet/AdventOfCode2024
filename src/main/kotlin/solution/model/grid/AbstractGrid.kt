@@ -16,6 +16,9 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
     open operator fun get(y: Int, x: Int): E {
         return get(y, x) { it }
     }
+    open operator fun get(coords: Pair<Int, Int>): E {
+        return get(coords.first, coords.second) { it }
+    }
 
     open operator fun <T> get(y: Int, x: Int, transform: (E) -> T): T {
         require((y in sizeRange) and (x in sizeRange)) { "Coordinates out of bounds" }
@@ -47,6 +50,10 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
 
     fun count(predicate: (E) -> Boolean): Int {
         return allIndexesWhere { predicate.invoke(it) }.count()
+    }
+
+    fun isInRange(coords: Pair<Int, Int>): Boolean {
+        return coords.first in sizeRange && coords.second in sizeRange
     }
 
     fun print(printSymbol: String = "@", predicate: (E) -> Boolean) {
