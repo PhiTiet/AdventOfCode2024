@@ -37,18 +37,16 @@ class DiskMap(input: String) {
 
     fun partitionFullSegments(){
         for (i in segments.indices.reversed()){
-            if (segments[i] is DiskSegmentFilled){
-                val current = segments[i] as DiskSegmentFilled
-                val firstIndexFitting = segments.indexOfFirst { it is DiskSegmentEmpty && it.size >= current.size }
-                if (firstIndexFitting < 0){
-                    continue
-                }
-                if (firstIndexFitting < i){
-                    val empty = segments[firstIndexFitting] as DiskSegmentEmpty
-                    empty.size -= current.size
-                    segments[i] = DiskSegmentEmpty(current.size)
-                    segments.add(firstIndexFitting, current)
-                }
+            if (segments[i] !is DiskSegmentFilled){
+                continue
+            }
+            val current = segments[i] as DiskSegmentFilled
+            val firstIndexFitting = segments.indexOfFirst { it is DiskSegmentEmpty && it.size >= current.size }
+            if (firstIndexFitting in 0 until i){
+                val empty = segments[firstIndexFitting] as DiskSegmentEmpty
+                empty.size -= current.size
+                segments[i] = DiskSegmentEmpty(current.size)
+                segments.add(firstIndexFitting, current)
             }
         }
     }
