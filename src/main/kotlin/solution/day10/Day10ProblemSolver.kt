@@ -23,11 +23,11 @@ class Day10ProblemSolver : AbstractProblemSolver<Int>() {
     private fun countRoutes(startIndex: Pair<Int, Int>, uniquePaths: Boolean): Int {
         var currentSteps = mutableListOf(startIndex)
         var trailheads = 0
+
         while (currentSteps.isNotEmpty()) {
             var nextSteps: MutableList<Pair<Int, Int>> = mutableListOf()
-            for (step in currentSteps) {
-                nextSteps.addAll(getNextSteps(step))
-            }
+            currentSteps.forEach {  nextSteps.addAll(validNextSteps(it)) }
+
             if (!uniquePaths) {
                 nextSteps = nextSteps.distinct().toMutableList()
             }
@@ -37,11 +37,9 @@ class Day10ProblemSolver : AbstractProblemSolver<Int>() {
         return trailheads
     }
 
-    private fun getNextSteps(current: Pair<Int, Int>): List<Pair<Int, Int>> {
-        val nextStepHeight = grid[current].height + 1
-
+    private fun validNextSteps(current: Pair<Int, Int>): List<Pair<Int, Int>> {
         return Direction.values()
             .map { Direction.move(current.first, current.second, it) }
-            .filter { grid.isInRange(it) && grid[it].height == nextStepHeight }
+            .filter { grid.isInRange(it) && grid[it].height == grid[current].height + 1 }
     }
 }
