@@ -65,7 +65,7 @@ class ProblemSolverTest {
 
     @Test
     fun dayEleven(){
-        verify(Day11ProblemSolver(), answerOne = 0, answerTwo = 0)
+        verify(Day11ProblemSolver(), answerOne = 216996, answerTwo = 257335372288947)
     }
 
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
