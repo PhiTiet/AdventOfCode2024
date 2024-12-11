@@ -8,16 +8,7 @@ class Day11ProblemSolver : AbstractProblemSolver<Long>() {
     private val memoized = mutableMapOf<Pair<Long, Long>, Long>()
     
     override fun partOne(): Long {
-        var current = input
-
-        for (i in 0 until 25) {
-            var newList: MutableList<Long> = mutableListOf()
-            for (stone in current) {
-                newList.addAll(newStones(stone))
-            }
-            current = newList
-        }
-        return current.size.toLong()
+        return input.sumOf { count(stone = it, remainingBlinks = 25) }
     }
 
     override fun partTwo(): Long {
@@ -46,19 +37,6 @@ class Day11ProblemSolver : AbstractProblemSolver<Long>() {
         }
         memoized[key] = result
         return result
-    }
-
-    private fun newStones(num:Long): List<Long>{
-        return if (num == 0L) {
-            mutableListOf(1)
-        } else if (num.toString().length % 2 == 0) {
-            val numString = num.toString()
-            val left = numString.substring(0, numString.length / 2).toLong()
-            val right = numString.substring(numString.length / 2).toLong()
-            listOf(left, right)
-        } else {
-            mutableListOf(num * 2024)
-        }
     }
 
 }
