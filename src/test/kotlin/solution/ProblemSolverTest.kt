@@ -3,6 +3,7 @@ package solution
 import org.junit.jupiter.api.Test
 import solution.day1.Day1ProblemSolver
 import solution.day10.Day10ProblemSolver
+import solution.day11.Day11ProblemSolver
 import solution.day2.Day2ProblemSolver
 import solution.day3.Day3ProblemSolver
 import solution.day4.Day4ProblemSolver
@@ -60,6 +61,11 @@ class ProblemSolverTest {
     @Test
     fun dayTen(){
         verify(Day10ProblemSolver(), answerOne = 629, answerTwo = 1242)
+    }
+
+    @Test
+    fun dayEleven(){
+        verify(Day11ProblemSolver(), answerOne = 0, answerTwo = 0)
     }
 
     private fun <A : Number> verify(solver : AbstractProblemSolver<A>, answerOne: A, answerTwo: A){
