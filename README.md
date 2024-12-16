@@ -1,3 +1,16 @@
+<div style="text-align: center;">
+  <span style="color: yellow;">|</span><br>
+  <span style="color: yellow;">\</span><span style="color: white;">|</span><span style="color: yellow;">/</span><br>
+  <span style="color: yellow;">-</span><span style="color: yellow;">-</span><span style="color: yellow;">*</span><span style="color: yellow;">-</span><span style="color: yellow;">-</span><br>
+  <span style="color: green;"><</span><span style="color: blue;">o</span><span style="color: green;">></span><br>
+  <span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><br>
+  <span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">></span><span style="color: red;">@</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><br>
+  <span style="color: green;">></span><span style="color: blue;">o</span><span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><br>
+  <span style="color: green;">></span><span style="color: red;">@</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: green;">&lt;</span><span style="color: yellow;">o</span><span style="color: green;">&lt;</span><br>
+  <span style="color: green;">></span><span style="color: white;">*</span><span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">&lt;</span><span style="color: red;">@</span><span style="color: green;">></span><span style="color: blue;">o</span><span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">&lt;</span><span style="color: green;">&lt;</span><br>
+  <span style="color: green;">></span><span style="color: blue;">o</span><span style="color: green;">&lt;</span><span style="color: red;">@</span><span style="color: green;">></span><span style="color: blue;">o</span><span style="color: green;">></span><span style="color: red;">@</span><span style="color: green;">></span><span style="color: blue;">o</span><span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">></span><span style="color: yellow;">o</span><span style="color: green;">></span>
+</div>
+
 # Advent of code 2024
 Advent of code is a series of puzzles released on a daily bases on the days leading up to christmas.
 The difficulty of these problems rises every day, and solving each one cleanly is similar in difficulty to leetcode exercises of various levels:
